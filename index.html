@@ -3,94 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BarchaTREND - Boutique en ligne</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Lien CSS -->
+    <title>BARCHA TREND | Boutique Officielle</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<header>
-    <h1>BarchaTREND</h1>
-    <nav>
-        <a href="#" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
-        <a href="#" data-fr="Produits" data-ar="المنتجات">Produits</a>
-        <a href="#" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
-        <button class="lang-btn" onclick="switchLang()">FR / AR</button>
-    </nav>
-</header>
+    <header>
+        <nav class="navbar">
+            <div class="logo">BARCHA <span>TREND</span></div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#" class="lang-fr">Français</a></li>
+                    <li><a href="#" class="lang-ar">العربية</a></li>
+                </ul>
+                <div class="cart-btn">🛒 <span class="badge">0</span></div>
+            </div>
+        </nav>
+    </header>
 
-<section class="hero">
-    <h2 data-fr="Bienvenue chez BarchaTREND" data-ar="مرحباً بكم في BarchaTREND">
-        Bienvenue chez BarchaTREND
-    </h2>
-    <p data-fr="Découvrez les meilleurs gadgets et accessoires modernes."
-       data-ar="اكتشف أفضل الأدوات والمنتجات العصرية.">
-        Découvrez les meilleurs gadgets et accessoires modernes.
-    </p>
-    <button class="btn" data-fr="Voir les Produits" data-ar="عرض المنتجات">
-        Voir les Produits
-    </button>
-</section>
-
-<section class="products">
-    <h2 data-fr="Nos Produits" data-ar="منتجاتنا">Nos Produits</h2>
-
-    <div class="product-grid">
-
-        <div class="product">
-            <img src="https://via.placeholder.com/250x200" alt="">
-            <h3 data-fr="Lampe LED Moderne" data-ar="مصباح LED عصري">Lampe LED Moderne</h3>
-            <p class="price">39€</p>
-            <button class="btn" data-fr="Acheter" data-ar="شراء">Acheter</button>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="animate-pop">BIENVENUE CHEZ <br><span class="brand-name">BARCHA TREND</span></h1>
+            <p>Gadgets, Maison & Accessoires : Le futur est ici.</p>
+            <div class="hero-btns">
+                <a href="#shop" class="btn-primary">Acheter Maintenant</a>
+                <a href="#shop" class="btn-secondary">تصفح المنتجات</a>
+            </div>
         </div>
+    </section>
 
-        <div class="product">
-            <img src="https://via.placeholder.com/250x200" alt="">
-            <h3 data-fr="Casque Bluetooth" data-ar="سماعة بلوتوث">Casque Bluetooth</h3>
-            <p class="price">59€</p>
-            <button class="btn" data-fr="Acheter" data-ar="شراء">Acheter</button>
-        </div>
+    <section id="shop" class="shop-container">
+        <h2 class="title-modern">Tendances du Moment</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Smart Gadget 2026</h3>
+                    <p class="price">89.00 TND</p>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
 
-        <div class="product">
-            <img src="https://via.placeholder.com/250x200" alt="">
-            <h3 data-fr="Montre Tendance" data-ar="ساعة عصرية">Montre Tendance</h3>
-            <p class="price">49€</p>
-            <button class="btn" data-fr="Acheter" data-ar="شراء">Acheter</button>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    © 2026 BarchaTREND - Tous droits réservés
-</footer>
-
-<script>
-let currentLang = "fr";
-
-function switchLang(){
-    const elements = document.querySelectorAll("[data-fr]");
-
-    if(currentLang === "fr"){
-        elements.forEach(el => {
-            el.innerText = el.getAttribute("data-ar");
-        });
-        document.body.classList.add("ar");
-        currentLang = "ar";
-    } else {
-        elements.forEach(el => {
-            el.innerText = el.getAttribute("data-fr");
-        });
-        document.body.classList.remove("ar");
-        currentLang = "fr";
-    }
-}
-</script>
-
-</body>
-</html>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-body">
+                    <h3>Dé
