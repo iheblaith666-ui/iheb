@@ -3,73 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaShop | Gadgets & Maison</title>
+    <title>BarchaTREND - Boutique en ligne</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Lien CSS -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo"><span>Barcha TREND</span></div>
-            <ul class="nav-links">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Boutique</a></li>
-                <li><a href="#">Accessoires</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="cart-icon">
-                🛒 <span id="cart-count">0</span>
-            </div>
-        </nav>
-    </header>
+<header>
+    <h1>BarchaTREND</h1>
+    <nav>
+        <a href="#" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
+        <a href="#" data-fr="Produits" data-ar="المنتجات">Produits</a>
+        <a href="#" data-fr="Contact" data-ar="اتصل بنا">Contact</a>
+        <button class="lang-btn" onclick="switchLang()">FR / AR</button>
+    </nav>
+</header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Le Futur de votre <span class="highlight">Quotidien</span></h1>
-            <p>Découvrez notre sélection exclusive de gadgets et accessoires innovants.</p>
-            <a href="#products" class="btn-main">Explorer la Collection</a>
+<section class="hero">
+    <h2 data-fr="Bienvenue chez BarchaTREND" data-ar="مرحباً بكم في BarchaTREND">
+        Bienvenue chez BarchaTREND
+    </h2>
+    <p data-fr="Découvrez les meilleurs gadgets et accessoires modernes."
+       data-ar="اكتشف أفضل الأدوات والمنتجات العصرية.">
+        Découvrez les meilleurs gadgets et accessoires modernes.
+    </p>
+    <button class="btn" data-fr="Voir les Produits" data-ar="عرض المنتجات">
+        Voir les Produits
+    </button>
+</section>
+
+<section class="products">
+    <h2 data-fr="Nos Produits" data-ar="منتجاتنا">Nos Produits</h2>
+
+    <div class="product-grid">
+
+        <div class="product">
+            <img src="https://via.placeholder.com/250x200" alt="">
+            <h3 data-fr="Lampe LED Moderne" data-ar="مصباح LED عصري">Lampe LED Moderne</h3>
+            <p class="price">39€</p>
+            <button class="btn" data-fr="Acheter" data-ar="شراء">Acheter</button>
         </div>
-    </section>
 
-    <main id="products" class="container">
-        <h2 class="section-title">Nos Meilleurs Produits</h2>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-badge">Nouveau</div>
-                <div class="product-img" style="background-color: #e0e0e0;"></div>
-                <div class="product-info">
-                    <h3>Lampe LED Holographique</h3>
-                    <p class="price">49,99 €</p>
-                    <button class="btn-add">Ajouter au panier</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img" style="background-color: #d1d1d1;"></div>
-                <div class="product-info">
-                    <h3>Mini Projecteur 4K</h3>
-                    <p class="price">129,00 €</p>
-                    <button class="btn-add">Ajouter au panier</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img" style="background-color: #c2c2c2;"></div>
-                <div class="product-info">
-                    <h3>Support Smartphone Pro</h3>
-                    <p class="price">15,50 €</p>
-                    <button class="btn-add">Ajouter au panier</button>
-                </div>
-            </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x200" alt="">
+            <h3 data-fr="Casque Bluetooth" data-ar="سماعة بلوتوث">Casque Bluetooth</h3>
+            <p class="price">59€</p>
+            <button class="btn" data-fr="Acheter" data-ar="شراء">Acheter</button>
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 NovaShop - Tous droits réservés.</p>
-    </footer>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x200" alt="">
+            <h3 data-fr="Montre Tendance" data-ar="ساعة عصرية">Montre Tendance</h3>
+            <p class="price">49€</p>
+            <button class="btn" data-fr="Acheter" data-ar="شراء">Acheter</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 BarchaTREND - Tous droits réservés
+</footer>
+
+<script>
+let currentLang = "fr";
+
+function switchLang(){
+    const elements = document.querySelectorAll("[data-fr]");
+
+    if(currentLang === "fr"){
+        elements.forEach(el => {
+            el.innerText = el.getAttribute("data-ar");
+        });
+        document.body.classList.add("ar");
+        currentLang = "ar";
+    } else {
+        elements.forEach(el => {
+            el.innerText = el.getAttribute("data-fr");
+        });
+        document.body.classList.remove("ar");
+        currentLang = "fr";
+    }
+}
+</script>
 
 </body>
 </html>
-
