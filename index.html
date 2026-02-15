@@ -4,52 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BARCHA TREND | Boutique Officielle</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff007f;
+            --neon-blue: #00d4ff;
+            --dark: #121212;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        /* HERO AVEC IMAGE DE PRODUITS */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1500&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Pour bien voir le texte */
+        }
+
+        .hero-content { position: relative; z-index: 10; padding: 20px; }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo { color: white; font-weight: 800; font-size: 1.5rem; }
+        .logo span { color: var(--neon-blue); }
+
+        .lang-switch button {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+
+        /* PRODUITS */
+        .shop { padding: 80px 5%; background: #f9f9f9; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+        .card-img { height: 200px; background-size: cover; background-position: center; }
+        .card-info { padding: 20px; text-align: center; }
+
+        .btn-buy {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-buy:hover { background: var(--neon-pink); }
+
+        /* BOUTONS HERO */
+        .hero-btns { margin-top: 20px; }
+        .btn-p { background: var(--neon-pink); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin: 10px; display: inline-block;}
+    </style>
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">BARCHA <span>TREND</span></div>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="#" class="lang-fr">Français</a></li>
-                    <li><a href="#" class="lang-ar">العربية</a></li>
-                </ul>
-                <div class="cart-btn">🛒 <span class="badge">0</span></div>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="logo">BARCHA <span>TREND</span></div>
+        <div class="lang-switch">
+            <button onclick="changeLang('fr')">FR</button>
+            <button onclick="changeLang('ar')">AR</button>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="animate-pop">
-                <br><span class="brand-name">BARCHA TREND</span></h1>
-            <p>Gadgets, Maison & Accessoires : Le futur est ici.</p>
+            <h1 id="h-title">BIENVENUE CHEZ</h1>
+            <span class="brand-name">BARCHA TREND</span>
+            <p id="h-desc">Gadgets, Maison & Accessoires</p>
             <div class="hero-btns">
-                <a href="#shop" class="btn-primary">Acheter Maintenant</a>
-                <a href="#shop" class="btn-secondary">تصفح المنتجات</a>
+                <a href="#shop" class="btn-p" id="h-btn">Découvrir</a>
             </div>
         </div>
     </section>
 
-    <section id="shop" class="shop-container">
-        <h2 class="title-modern">Tendances du Moment</h2>
-        
+    <section class="shop" id="shop">
+        <h2 id="s-title" style="text-align:center">Nos Produits</h2>
         <div class="grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="card-body">
-                    <h3>Smart Gadget 2026</h3>
-                    <p class="price">89.00 TND</p>
-                    <button class="add-to-cart">Ajouter au panier</button>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500')"></div>
+                <div class="card-info">
+                    <h3>Casque Premium</h3>
+                    <p>150 TND</p>
+                    <button class="btn-buy">Ajouter</button>
                 </div>
             </div>
-
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="card-body">
-                    <h3>Dé
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1526170315873-3a98658c7a6a?w=500')"></div>
+                <div class="card-info">
+                    <h3>Appareil Photo Retro</h3>
+                    <p>450 TND</p>
+                    <button class="btn-buy">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <script>
+        const translations = {
+            fr: {
+                title: "BIENVENUE CHEZ",
+                desc: "Gadgets, Maison & Accessoires",
+                btn: "Découvrir",
+                shop: "Nos Produits",
+                dir: "ltr"
+            },
+            ar: {
+                title: "مرحباً بكم في",
+                desc: "أدوات، منزل وإكسسوارات",
+                btn: "تصفح الآن",
+                shop: "منتجاتنا",
+                dir: "rtl"
+            }
+        };
+
+        function changeLang(lang) {
+            document.getElementById('h-title').innerText = translations[lang].title;
+            document.getElementById('h-desc').innerText = translations[lang].desc;
+            document.getElementById('h-btn').innerText = translations[lang].btn;
+            document.getElementById('s-title').innerText = translations[lang].shop;
+            document.body.style.direction = translations[lang].dir;
+        }
+    </script>
+</body>
+</html>
